@@ -8,7 +8,7 @@
 
 ## Установка:
 
-- На Windows вы можете использовать `python`.
+- На Windows используйте `python`.
 - На Linux рекомендуется использовать `python3`.
 - Telegram аккаунт для создания бота
 
@@ -22,7 +22,7 @@ git clone git@github.com:zerin2/api_yamdb.git
 python -m venv venv
 ```
 ```
-source venv/scripts/activate
+venv/scripts/activate
 ```
 3. Установите зависимости из файла requirements.txt:
 ```
@@ -36,12 +36,19 @@ DB_URL=<ваша_строка_подключения_к_базе_данных>
 ```
 TOKEN — токен вашего Telegram бота, полученный у BotFather<br>
 DB_URL — строка подключения к вашей базе данных (например, PostgreSQL)<br>
-
-5. Применение миграций базы данных:
+5. Инициализируйте библиотеку Alembic:
+```
+alembic init alembic
+```
+6. Cоздайте таблицу версий:
+```
+alembic stamp head
+```
+7. Применение миграций базы данных:
 ```
 alembic upgrade head
 ```
-6. Запуск бота из папки src:
+8. Запуск бота из папки src:
 ```
 cd src
 python app.py
